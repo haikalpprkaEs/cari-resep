@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cari Resep</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-white font-body text-ink">
+
+  <header class="bg-cobalt text-white">
+    <div class="mx-auto max-w-5xl px-4 py-12 sm:py-16">
+      <h1 class="font-display text-4xl font-extrabold sm:text-6xl">Mau masak apa hari ini?</h1>
+      <p class="mt-3 max-w-xl text-white/80">
+        Cari resep dari seluruh dunia. Ketik nama masakan atau pilih kategori.
+      </p>
+
+      <form id="search-form" class="mt-8 flex max-w-xl gap-2">
+        <label for="search-input" class="sr-only">Nama masakan</label>
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Contoh: chicken, pasta, soup"
+          class="w-full rounded-lg px-4 py-3 text-ink placeholder:text-ink/50 focus:outline-none focus:ring-4 focus:ring-butter"
+        />
+        <button
+          type="submit"
+          class="rounded-lg bg-butter px-5 py-3 font-bold text-ink hover:bg-yellow-200 focus:outline-none focus:ring-4 focus:ring-white"
+        >
+          Cari resep
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-8">
+
+    <section aria-label="Kategori">
+      <h2 class="font-display text-xl font-semibold">Kategori</h2>
+      <div id="categories" class="mt-3 flex flex-wrap gap-2"></div>
+    </section>
+
+    <section class="mt-10" aria-live="polite">
+      <h2 id="result-title" class="font-display text-2xl font-extrabold"></h2>
+      <p id="status" class="mt-4 text-ink/70"></p>
+      <div id="meals" class="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <footer class="mt-12 border-t border-ink/10 py-6 text-center text-sm text-ink/60">
+    Data dari <a class="underline" href="https://www.themealdb.com/api.php" target="_blank" rel="noopener">TheMealDB API</a>
+  </footer>
+
+  <dialog id="detail" class="w-[min(40rem,92vw)] rounded-xl p-0 backdrop:bg-ink/60">
+    <div id="detail-body"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
